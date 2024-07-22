@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import authRoutes from './routes/authRoutes.js'
 
 //create express app
 const app = express();
@@ -23,6 +24,9 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
+
+// Authentication routes
+app.use('/api/auth', authRoutes);
 
 //start app
 const PORT = process.env.PORT || 5000;

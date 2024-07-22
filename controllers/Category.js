@@ -54,3 +54,32 @@ export const deleteCategory = async (req, res) => {
     res.status(500).send(error);
   }
 };
+// Add subcategory to a category
+export const addSubcategory = async (req, res) => {
+  try {
+    const category = await Category.findById(req.params.id);
+    if (!category) {
+      return res.status(404).send();
+    }
+    category.subcategories.push(req.body);
+    await category.save();
+    res.status(201).send(category);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
+
+// Remove subcategory from a category
+export const removeSubcategory = async (req, res) => {
+  try {
+    const category = await Category.findById(req.params.id);
+    if (!category) {
+      return res.status(404).send();
+    }
+    category.subcategories.id(req.params.subId).remove();
+    await category.save();
+    res.status(200).send(category);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};

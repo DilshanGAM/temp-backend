@@ -52,7 +52,7 @@ export const logout = (req, res) => {
 
 export const getProfile = async (req, res) => {
     try {
-        const user = await User.findById(req.user.id).select('-passwordHash'); // Exclude passwordHash
+        const user = await User.findById(req.user.id).select('-passwordHash'); 
         if (!user) {
             return res.status(404).send('User not found');
         }

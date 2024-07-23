@@ -3,7 +3,9 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import authRoutes from './routes/userRoutes.js'
+import userRoutes from './routes/userRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+
 
 //create express app
 const app = express();
@@ -26,7 +28,9 @@ connection.once('open', () => {
 });
 
 // Authentication routes
-app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
+
+app.use('/api/admin', adminRoutes);
 
 //start app
 const PORT = process.env.PORT || 5000;

@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import productRouter from './routes/ProductRouter.js';
 
 //create express app
 const app = express();
@@ -15,10 +16,13 @@ app.get('/api/hello', (req, res) => {
   res.send('Hello World');
 });
 
+app.use('/api/products', productRouter);
+
 //connect to mongodb
 dotenv.config();
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {  });
+
+mongoose.connect(uri, { });
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');

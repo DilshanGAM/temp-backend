@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import authRoutes from './routes/authRoutes.js'
+import authRoutes from './routes/userRoutes.js'
 
 //create express app
 const app = express();

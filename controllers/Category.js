@@ -31,6 +31,32 @@ export const getCategoryById = async (req, res) => {
   }
 };
 
+// Fetch subcategories by category ID
+export const getSubcategoriesById = async (req, res) => {
+  try {
+    const category = await Category.findById(req.params.id);
+    if (!category) {
+      return res.status(404).send({ message: 'Category not found' });
+    }
+    res.send(category.subcategories);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+// Fetch subcategories by category name
+export const getSubcategoriesByName = async (req, res) => {
+  try {
+    const category = await Category.findOne({ name: req.params.name });
+    if (!category) {
+      return res.status(404).send({ message: 'Category not found' });
+    }
+    res.send(category.subcategories);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 export const updateCategory = async (req, res) => {
   try {
     const category = await Category.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });

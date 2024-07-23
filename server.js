@@ -3,7 +3,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import categoryRoutes from './routes/categoryRoutes.js'; // Add this line
+import categoryRoutes from './routes/categoryRoutes.js';
+import infoRoutes from './routes/infoRoutes.js'; 
 
 // Create express app
 const app = express();
@@ -27,6 +28,7 @@ connection.once('open', () => {
 
 // Use category routes
 app.use('/categories', categoryRoutes); // Add this line
+app.use('/info', infoRoutes);
 
 // Start app
 const PORT = process.env.PORT || 5000;

@@ -19,10 +19,21 @@ export const addProduct = async (req, res) => {
 }
 
 // Get all product
+// 10 Products per page
 export const getAllProduct = async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     try {
-        const products = await productList.find();
-        res.status(201).json(products);
+        const products = await productList.find().skip(skip).limit(limit);
+        const totalProducts = await productList.countDocuments();
+        const totalPages = Math.ceil(totalProducts / limit);
+        res.status(200).json({
+            products,
+            page,
+            totalPages,
+            totalProducts
+        });
     }
     catch (err) {
         res.status(500).json({ meesage: err.messsge});
@@ -72,16 +83,86 @@ export const updateProduct = async (req, res) => {
 }
 
 // Search by product name
+// 10 Products per page
 export const searchByProductName = async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
     try {
-        const productName  = req.params.productName;
-        if(!productName) {
-            return res.status(400).send({ message: 'Product Name required'});
+        const productName = req.query.productName; // Changed to req.query.productName
+        if (!productName) {
+            return res.status(400).json({ message: 'Product Name required' });
         }
-        const searchProduct = await productList.find({ productName: { $regex: productName, $options: 'i' } });
-        res.status(200).json(searchProduct);
-    }
+
+        const searchProduct = { productName: { $regex: productName, $options: 'i' } };
+        const products = await productList.find(searchProduct).skip(skip).limit(limit);
+        const totalProducts = await productList.countDocuments(searchProduct);
+        const totalPages = Math.ceil(totalProducts / limit);
+
+        res.status(200).json({
+            products,
+            page,
+            totalPages,
+            totalProducts
+        });
+    }    
     catch(err) {
+        console.error(err);
+        res.status(500).json({ message: err.meesage })
+    }
+}
+
+// Search by Price Range
+export const searchByPriceRange = async (req, res) => {
+    try {
+        const minPrice = parseFloat(req.query.minPrice) || 0;
+        const maxPrice = parseFloat(req.query.maxPrice) || Infinity;
+        if (!minPrice || !maxPrice) {
+            return res.status(400).json({ message: 'Price Range Required' });
+        }
+        const searchPriceRange = {labeledPrice: { $gte: minPrice, $lte: maxPrice } };
+        const products = await productList.find(searchPriceRange);
+        res.status(200).json({
+            products
+        });
+
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ message: err.meesage }) 
+    }
+}
+
+// Search by price and product Name
+export const searchByPriceAndName = async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+    try {
+        const productName = req.query.productName;
+        const minPrice = parseFloat(req.query.minPrice) || 0;
+        const maxPrice = parseFloat(req.query.maxPrice) || Infinity;
+
+        if (!productName) {
+            return res.status(400).json({ message: 'Product Name required' });
+        }
+        
+        const {searchfilter} = {
+            productName: { $regex: productName, $options: 'i' },
+            labeledPrice: { $gte: minPrice, $lte: maxPrice }
+        };
+        const products = await productList.find(searchfilter).skip(skip).limit(limit);
+        const totalProducts = await productList.countDocuments(searchfilter);
+        const totalPages = Math.ceil(totalProducts / limit);
+
+        res.status(200).json({
+            products,
+            page,
+            totalPages,
+            totalProducts
+        });
+    }
+    catch (err) {
         console.error(err);
         res.status(500).json({ message: err.meesage })
     }

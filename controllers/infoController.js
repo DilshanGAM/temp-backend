@@ -12,7 +12,7 @@ export const createInfo = async (req, res) => {
 };
 
 // Read info
-export const getInfo = async (req, res) => {
+export const getInfo = async (_req, res) => {
   try {
     const info = await Info.find();
     res.send(info);

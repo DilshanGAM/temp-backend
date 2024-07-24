@@ -6,7 +6,7 @@ const secretKey = process.env.JWT_SECRET || 'your_secret_key';
 
 export const registerAdmin = async (req, res) => {
     try {
-        const { email, password, name, permissions } = req.body;
+        const { email, password, name, permissions,registeredBy } = req.body;
 
         
         if (!req.admin) {
@@ -48,4 +48,6 @@ export const loginAdmin = async (req, res) => {
         res.status(400).send('Error logging in: ' + error.message);
     }
 };
+
+
 

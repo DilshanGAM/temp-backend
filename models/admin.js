@@ -8,7 +8,7 @@ const adminSchema = new mongoose.Schema({
     permissions: { type: [String], required: true },
     lastLogin: { type: Date },
     registeredDate: { type: Date, default: Date.now },
-    registeredBy: { type: String, required: true } // Email of the admin who registered this admin
+    registeredBy: { type: String, required: true } 
 });
 
 adminSchema.methods.comparePassword = function(password) {

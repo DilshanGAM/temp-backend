@@ -133,37 +133,4 @@ export const searchByPriceRange = async (req, res) => {
     }
 }
 
-// Search by price and product Name
-export const searchByPriceAndName = async (req, res) => {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
-    const skip = (page - 1) * limit;
-    try {
-        const productName = req.query.productName;
-        const minPrice = parseFloat(req.query.minPrice) || 0;
-        const maxPrice = parseFloat(req.query.maxPrice) || Infinity;
 
-        if (!productName) {
-            return res.status(400).json({ message: 'Product Name required' });
-        }
-        
-        const {searchfilter} = {
-            productName: { $regex: productName, $options: 'i' },
-            labeledPrice: { $gte: minPrice, $lte: maxPrice }
-        };
-        const products = await productList.find(searchfilter).skip(skip).limit(limit);
-        const totalProducts = await productList.countDocuments(searchfilter);
-        const totalPages = Math.ceil(totalProducts / limit);
-
-        res.status(200).json({
-            products,
-            page,
-            totalPages,
-            totalProducts
-        });
-    }
-    catch (err) {
-        console.error(err);
-        res.status(500).json({ message: err.meesage })
-    }
-}

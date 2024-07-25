@@ -3,9 +3,12 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import userRoutes from './routes/userRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import infoRoutes from './routes/infoRoutes.js'; 
 import orderRoutes from './routes/orderRoutes.js';
+
 
 
 // Create express app
@@ -27,6 +30,11 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
+
+// Authentication routes
+app.use('/api/user', userRoutes);
+
+app.use('/api/admin', adminRoutes);
 
 // Use category routes
 app.use('/categories', categoryRoutes); // Add this line

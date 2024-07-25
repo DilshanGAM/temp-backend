@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import accountSettings from './routes/accountSettingsRoutes.js'
 
 
 //create express app
@@ -29,8 +30,8 @@ connection.once('open', () => {
 
 // Authentication routes
 app.use('/api/user', userRoutes);
-
 app.use('/api/admin', adminRoutes);
+app.use('/api/user',accountSettings);
 
 //start app
 const PORT = process.env.PORT || 5000;

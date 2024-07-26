@@ -27,3 +27,27 @@ export const changePassword = async (req, res) => {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 };
+
+
+// Change account settings
+export const changeAccountSettings = async (req, res) => {
+    const { firstName, lastName, gender, birthYear, profilePicture } = req.body;
+
+    try {
+        const user = req.user;
+
+        // Update user fields
+        if (firstName) user.firstName = firstName;
+        if (lastName) user.lastName = lastName;
+        if (gender) user.gender = gender;
+        if (birthYear) user.birthYear = birthYear;
+        if (profilePicture) user.profilePicture = profilePicture;
+
+        await user.save();
+
+        res.status(200).json({ message: 'Account settings updated successfully', user });
+    } catch (error) {
+        console.error('Error updating account settings:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+};

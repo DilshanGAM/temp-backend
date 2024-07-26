@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import accountSettings from './routes/accountSettingsRoutes.js'
+import addressRoutes from './routes/addressRoutes.js';
 
 
 //create express app
@@ -32,6 +33,7 @@ connection.once('open', () => {
 app.use('/api/user', userRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/user',accountSettings);
+app.use('/api/address', addressRoutes);
 
 //start app
 const PORT = process.env.PORT || 5000;

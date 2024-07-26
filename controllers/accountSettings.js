@@ -3,17 +3,14 @@ import User from "../models/user.js";
 
 // Change password
 export const changePassword = async (req, res) => {
-    const { email, oldPassword, newPassword } = req.body;
+    const { oldPassword, newPassword } = req.body;
 
-    if (!email || !oldPassword || !newPassword) {
-        return res.status(400).json({ message: 'Please provide email, old password, and new password' });
+    if (!oldPassword || !newPassword) {
+        return res.status(400).json({ message: 'Please provide old password and new password' });
     }
 
     try {
-        const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
+        const user = req.user;
 
         const isMatch = await bcrypt.compare(oldPassword, user.passwordHash);
         if (!isMatch) {

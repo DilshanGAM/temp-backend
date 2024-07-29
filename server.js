@@ -6,26 +6,36 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import productRouter from './routes/ProductRouter.js';
+import categoryRoutes from './routes/categoryRoutes.js';
+import infoRoutes from './routes/infoRoutes.js'; 
+import orderRoutes from './routes/orderRoutes.js';
+import accountSettings from './routes/accountSettingsRoutes.js'
+import addressRoutes from './routes/addressRoutes.js';
+import phoneNumberRoutes from './routes/phoneNumberRoutes.js';
 
 
-//create express app
+
+// Create express app
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//api/hello
+// API test route
 app.get('/api/hello', (req, res) => {
   res.send('Hello World');
 });
 
-app.use('/api/products', productRouter);
-
 //connect to mongodb
 dotenv.config();
 const uri = process.env.ATLAS_URI;
-
 mongoose.connect(uri, { });
+
+app.use('/api/products', productRouter);
+
+
+
+
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
@@ -33,10 +43,19 @@ connection.once('open', () => {
 
 // Authentication routes
 app.use('/api/user', userRoutes);
-
 app.use('/api/admin', adminRoutes);
+app.use('/api/user',accountSettings);
+app.use('/api/address', addressRoutes);
+app.use('/api/phonenumber', phoneNumberRoutes);
 
-//start app
+// Use category routes
+app.use('/categories', categoryRoutes); // Add this line
+app.use('/info', infoRoutes);
+
+// Use routes
+app.use('/orders', orderRoutes);
+
+// Start app
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);

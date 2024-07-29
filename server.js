@@ -8,6 +8,9 @@ import adminRoutes from './routes/adminRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import infoRoutes from './routes/infoRoutes.js'; 
 import orderRoutes from './routes/orderRoutes.js';
+import accountSettings from './routes/accountSettingsRoutes.js'
+import addressRoutes from './routes/addressRoutes.js';
+import phoneNumberRoutes from './routes/phoneNumberRoutes.js';
 
 
 
@@ -33,8 +36,10 @@ connection.once('open', () => {
 
 // Authentication routes
 app.use('/api/user', userRoutes);
-
 app.use('/api/admin', adminRoutes);
+app.use('/api/user',accountSettings);
+app.use('/api/address', addressRoutes);
+app.use('/api/phonenumber', phoneNumberRoutes);
 
 // Use category routes
 app.use('/categories', categoryRoutes); // Add this line

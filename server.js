@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import productRouter from './routes/ProductRouter.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import infoRoutes from './routes/infoRoutes.js'; 
 import orderRoutes from './routes/orderRoutes.js';
@@ -25,10 +26,16 @@ app.get('/api/hello', (req, res) => {
   res.send('Hello World');
 });
 
-// Connect to MongoDB
+//connect to mongodb
 dotenv.config();
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }); // Add options here
+mongoose.connect(uri, { });
+
+app.use('/api/products', productRouter);
+
+
+
+
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');

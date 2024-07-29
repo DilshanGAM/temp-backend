@@ -1,12 +1,26 @@
 import PhoneNumber from '../models/phoneNumber.js';
 
-// Create a new phone number
+// Create a new phone number entry
 export const createPhoneNumber = async (req, res) => {
-    const { phoneNumber, countryCode, numberWithoutCountryCode, country } = req.body;
-    const email = req.user.email;
-
     try {
-        const newPhoneNumber = new PhoneNumber({ email, phoneNumber, countryCode, numberWithoutCountryCode, country });
+        const { email, phoneNumber, countryCode, numberWithoutCountryCode, country } = req.body;
+
+        // Log incoming request body
+        console.log('Request Body:', req.body);
+
+        // Validate required fields
+        if (!email || !phoneNumber || !countryCode || !numberWithoutCountryCode || !country) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
+        const newPhoneNumber = new PhoneNumber({
+            email,
+            phoneNumber,
+            countryCode,
+            numberWithoutCountryCode,
+            country
+        });
+
         await newPhoneNumber.save();
         res.status(201).json(newPhoneNumber);
     } catch (error) {

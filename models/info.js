@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const infoSchema = new mongoose.Schema({
   contact: {
@@ -17,9 +17,9 @@ const infoSchema = new mongoose.Schema({
     title: { type: String, required: true },
     placeholder: { type: String, required: true },
     buttonText: { type: String, required: true },
-  }
+  },
 });
 
-const Info = mongoose.model('Info', infoSchema);
+const Info = mongoose.model("Info", infoSchema);
 
 export default Info;

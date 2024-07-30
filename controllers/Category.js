@@ -1,4 +1,4 @@
-import Category from '../models/Category.js'; // Update the import path as necessary
+import Category from "../models/Category.js"; // Update the import path as necessary
 
 export const createCategory = async (req, res) => {
   try {
@@ -36,7 +36,7 @@ export const getSubcategoriesById = async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
     if (!category) {
-      return res.status(404).send({ message: 'Category not found' });
+      return res.status(404).send({ message: "Category not found" });
     }
     res.send(category.subcategories);
   } catch (error) {
@@ -49,7 +49,7 @@ export const getSubcategoriesByName = async (req, res) => {
   try {
     const category = await Category.findOne({ name: req.params.name });
     if (!category) {
-      return res.status(404).send({ message: 'Category not found' });
+      return res.status(404).send({ message: "Category not found" });
     }
     res.send(category.subcategories);
   } catch (error) {
@@ -59,7 +59,10 @@ export const getSubcategoriesByName = async (req, res) => {
 
 export const updateCategory = async (req, res) => {
   try {
-    const category = await Category.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const category = await Category.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
     if (!category) {
       return res.status(404).send();
     }
@@ -75,7 +78,7 @@ export const deleteCategory = async (req, res) => {
     if (!category) {
       return res.status(404).send();
     }
-    res.send({ message: 'Category deleted' });
+    res.send({ message: "Category deleted" });
   } catch (error) {
     res.status(500).send(error);
   }

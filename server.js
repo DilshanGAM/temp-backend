@@ -43,8 +43,8 @@ app.use("/api/phonenumber", phoneNumberRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/products", productRouter);
 
-// Use category routes
-app.use("/categories", categoryRoutes); // Add this line
+
+app.use("/categories", categoryRoutes); 
 app.use("/info", infoRoutes);
 
 // Start app

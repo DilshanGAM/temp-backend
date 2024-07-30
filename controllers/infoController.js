@@ -1,4 +1,4 @@
-import Info from '../models/info.js';
+import Info from "../models/info.js";
 
 // Create new info
 export const createInfo = async (req, res) => {
@@ -24,7 +24,10 @@ export const getInfo = async (_req, res) => {
 // Update info
 export const updateInfo = async (req, res) => {
   try {
-    const info = await Info.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const info = await Info.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
     if (!info) {
       return res.status(404).send();
     }

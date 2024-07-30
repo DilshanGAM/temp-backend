@@ -1,4 +1,4 @@
-import Order from '../models/order.js';
+import Order from "../models/order.js";
 
 // Create a new order
 export const createOrder = async (req, res) => {
@@ -6,7 +6,7 @@ export const createOrder = async (req, res) => {
     const order = new Order({
       ...req.body,
       user: req.user ? req.user._id : null,
-      admin: req.admin ? req.admin._id : null
+      admin: req.admin ? req.admin._id : null,
     });
     await order.save();
     res.status(201).send(order);

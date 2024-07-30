@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
   orderId: { type: String, required: true, unique: true },
@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
     name: { type: String, required: true },
     address: { type: String, required: true },
     phoneNumber: { type: String, required: true },
-    email: { type: String, required: true }
+    email: { type: String, required: true },
   },
   items: [
     {
@@ -18,14 +18,14 @@ const orderSchema = new mongoose.Schema({
       variant: {
         color: { type: String, required: true },
         size: { type: String, required: true },
-        storage: { type: String }
+        storage: { type: String },
       },
       quantity: { type: Number, required: true },
-      price: { type: Number, required: true }
-    }
-  ]
+      price: { type: Number, required: true },
+    },
+  ],
 });
 
-const Order = mongoose.model('Order', orderSchema);
+const Order = mongoose.model("Order", orderSchema);
 
 export default Order;

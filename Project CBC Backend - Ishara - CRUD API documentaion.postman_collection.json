@@ -1,0 +1,1096 @@
+{
+	"info": {
+		"_postman_id": "3bd71970-aebe-4037-b499-c96c6bf58b3a",
+		"name": "Project CBC Backend - Ishara - CRUD API documentaion",
+		"description": "StartFragment\n\n**CBC-Backend:Implement features to perform crud operations on categories with subcategories**\n\n- Post Categories - Create data\n    \n- Get categories - Read data\n    \n- Post subcategories - Create data\n    \n- Get subcategories - Read data\n    \n- put categories and subcategories - Update data\n    \n- Delete categories and subcategories - Delete data\n    \n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37747287",
+		"_collection_link": "https://planetary-desert-239424.postman.co/workspace/31d83912-c342-430c-9b83-3c203d457ec0/collection/26934059-3bd71970-aebe-4037-b499-c96c6bf58b3a?action=share&source=collection_link&creator=37747287"
+	},
+	"item": [
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Post Categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Electronics text zzzzzzz\",\r\n  \"description\": \"Devices and gadgets\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/categories/66a7c7d693fdb7ccebdb74fe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"66a7c7d693fdb7ccebdb74fe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post subcategories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Smart watches text zzzzzzz\",\r\n  \"description\": \"Smart waches and accesories\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/categories/669e98ae9280cc5f7aedf612/subcategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"669e98ae9280cc5f7aedf612",
+								"subcategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subcategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/categories/669e98ae9280cc5f7aedf612",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"669e98ae9280cc5f7aedf612"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put categories and subcategories",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated Electronics text zzz\",\r\n  \"description\": \"Updated description\",\r\n  \"subcategories\": [\r\n    {\r\n      \"name\": \"Updated Smart watches text\",\r\n      \"description\": \"Updated description\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/categories/669e98ae9280cc5f7aedf612",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"669e98ae9280cc5f7aedf612"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete categories and subcategories",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/categories/669e93409280cc5f7aedf605",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"669e93409280cc5f7aedf605"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/categories/669e98ae9280cc5f7aedf612/subcategories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/categories/669e98ae9280cc5f7aedf612/subcategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"669e98ae9280cc5f7aedf612",
+								"subcategories"
+							]
+						},
+						"description": "Get subcategory details by category ID"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/categories/name/Electronics text/subcategories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/categories/name/Electronics text zzz/subcategories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"categories",
+								"name",
+								"Electronics text zzz",
+								"subcategories"
+							]
+						},
+						"description": "Get subcategory by category name"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Info",
+			"item": [
+				{
+					"name": "Post Info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"contact\": {\r\n    \"phone\": \"123456789\",\r\n    \"email\": \"demoexample@gmail.com\",\r\n    \"address\": \"naluwela, balangoda, sri lanka\"\r\n  },\r\n  \"socialMedia\": {\r\n    \"facebook\": \"https://facebook.com/client\",\r\n    \"twitter\": \"https://twitter.com/client\",\r\n    \"youtube\": \"https://youtube.com/client\",\r\n    \"pinterest\": \"https://pinterest.com/client\",\r\n    \"instagram\": \"https://instagram.com/client\"\r\n  },\r\n  \"newsletter\": {\r\n    \"title\": \"JOIN OUR NEWSLETTER\",\r\n    \"placeholder\": \"Enter your email address\",\r\n    \"buttonText\": \"SUBSCRIBE\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"info"
+							]
+						},
+						"description": "Create info"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Info",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"contact\": {\r\n    \"phone\": \"987654321 new zz\",\r\n    \"email\": \"newemail@example.com new\",\r\n    \"address\": \"new address, city, country new\"\r\n  },\r\n  \"socialMedia\": {\r\n    \"facebook\": \"https://facebook.com/newclient\",\r\n    \"twitter\": \"https://twitter.com/newclient\",\r\n    \"youtube\": \"https://youtube.com/newclient\",\r\n    \"pinterest\": \"https://pinterest.com/newclient\",\r\n    \"instagram\": \"https://instagram.com/newclient\"\r\n  },\r\n  \"newsletter\": {\r\n    \"title\": \"JOIN OUR NEW NEWSLETTER\",\r\n    \"placeholder\": \"Enter your new email address\",\r\n    \"buttonText\": \"SUBSCRIBE NOW\"\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/info/669fc7c4fa5a53f91acb42b3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"info",
+								"669fc7c4fa5a53f91acb42b3"
+							]
+						},
+						"description": "Update info"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Info ById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/info/669fc7c4fa5a53f91acb42b3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"info",
+								"669fc7c4fa5a53f91acb42b3"
+							]
+						},
+						"description": "Fetch info"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Post Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjI3NjU3MiwiZXhwIjoxNzIyMjgwMTcyfQ.LVNLyLEFh6S81HZl_qMxGYdEQKUZGgzrVLxjLRYBpdk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderId\": \"12345\",\r\n  \"status\": \"Pending\",\r\n  \"orderedDate\": \"2023-07-23T18:25:43.511Z\",\r\n  \"customer\": {\r\n    \"name\": \"John Doe\",\r\n    \"address\": \"123 Main St\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"email\": \"john.doe@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"productName\": \"Product 1\",\r\n      \"variant\": {\r\n        \"color\": \"Red\",\r\n        \"size\": \"M\",\r\n        \"storage\": \"64GB\"\r\n      },\r\n      \"quantity\": 1,\r\n      \"price\": 100.0\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						},
+						"description": "Create Order"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderId\": \"1\",\r\n  \"status\": \"Pending\",\r\n  \"orderedDate\": \"2024-07-23T00:00:00Z\",\r\n  \"customer\": {\r\n    \"name\": \"John Doe\",\r\n    \"address\": \"123 Main St\",\r\n    \"phoneNumber\": \"123456789\",\r\n    \"email\": \"john.doe@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"productName\": \"Phone\",\r\n      \"variant\": {\r\n        \"color\": \"Black\",\r\n        \"size\": \"Medium\"\r\n      },\r\n      \"quantity\": 1,\r\n      \"price\": 699.99\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjI3NjI2OSwiZXhwIjoxNzIyMjc5ODY5fQ.fyyl-vFIi4rHwpNwq54xZUo46dyDT7YMMp9vLHG4Kdk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjI3NjI2OSwiZXhwIjoxNzIyMjc5ODY5fQ.fyyl-vFIi4rHwpNwq54xZUo46dyDT7YMMp9vLHG4Kdk"
+							]
+						},
+						"description": "Post Orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/orders/66a12b956dd98de5c3931c3d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"66a12b956dd98de5c3931c3d"
+							]
+						},
+						"description": "Delete Order"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderId\": \"1\",\r\n  \"status\": \"Pending\",\r\n  \"orderedDate\": \"2024-07-23T00:00:00Z\",\r\n  \"customer\": {\r\n    \"name\": \"John Doenew\",\r\n    \"address\": \"123 Main St\",\r\n    \"phoneNumber\": \"123456789\",\r\n    \"email\": \"john.doe@example.com\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"productName\": \"Phone\",\r\n      \"variant\": {\r\n        \"color\": \"Black\",\r\n        \"size\": \"Medium\"\r\n      },\r\n      \"quantity\": 1,\r\n      \"price\": 699.99\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/66a12b956dd98de5c3931c3d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"66a12b956dd98de5c3931c3d"
+							]
+						},
+						"description": "Update Order"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product List",
+			"item": [
+				{
+					"name": "Post Product list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjM1MTQ1OCwiZXhwIjoxNzIyMzU1MDU4fQ.x-RTxtQPRYUrAS5-csHKa3ZgD1nv2xSdgcjzDRxx3Zs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Example Product\",\r\n    \"altNames\": [\r\n        {\r\n            \"altName1\": \"Alternative Name 1\",\r\n            \"altName2\": \"Alternative Name 2\"\r\n        }\r\n    ],\r\n    \"labeledPrice\": 100.00,\r\n    \"lastPrice\": 80.00,\r\n    \"description\": \"This is an example product description.\",\r\n    \"image\": [\r\n        {\r\n            \"image1\": \"https://example.com/image1.jpg\"\r\n        }\r\n    ],\r\n    \"offerEnding\": \"2023-12-31T23:59:59.999Z\",\r\n    \"variedBy\": [\r\n        {\r\n            \"name\": \"Color\",\r\n            \"values\": [\r\n                {\r\n                    \"name\": \"Red\",\r\n                    \"icon\": \"https://example.com/icon-red.jpg\"\r\n                },\r\n                {\r\n                    \"name\": \"Blue\",\r\n                    \"icon\": \"https://example.com/icon-blue.jpg\"\r\n                }\r\n            ],\r\n            \"iconType\": \"color\"\r\n        },\r\n        {\r\n            \"name\": \"Size\",\r\n            \"values\": [\r\n                {\r\n                    \"name\": \"Small\",\r\n                    \"icon\": \"https://example.com/icon-small.jpg\"\r\n                },\r\n                {\r\n                    \"name\": \"Medium\",\r\n                    \"icon\": \"https://example.com/icon-medium.jpg\"\r\n                },\r\n                {\r\n                    \"name\": \"Large\",\r\n                    \"icon\": \"https://example.com/icon-large.jpg\"\r\n                }\r\n            ],\r\n            \"iconType\": \"size\"\r\n        }\r\n    ],\r\n    \"variants\": [\r\n        {\r\n            \"filters\": [\r\n                {\r\n                    \"color\": \"Red\",\r\n                    \"size\": \"Small\",\r\n                    \"storage\": \"64GB\"\r\n                }\r\n            ],\r\n            \"images\": [\r\n                {\r\n                    \"image1\": \"https://example.com/variant-red-small-64gb.jpg\"\r\n                }\r\n            ],\r\n            \"labeledPrice\": 110.00,\r\n            \"lastPrice\": 90.00,\r\n            \"stock\": 10\r\n        },\r\n        {\r\n            \"filters\": [\r\n                {\r\n                    \"color\": \"Blue\",\r\n                    \"size\": \"Medium\",\r\n                    \"storage\": \"128GB\"\r\n                }\r\n            ],\r\n            \"images\": [\r\n                {\r\n                    \"image1\": \"https://example.com/variant-blue-medium-128gb.jpg\"\r\n                }\r\n            ],\r\n            \"labeledPrice\": 120.00,\r\n            \"lastPrice\": 100.00,\r\n            \"stock\": 5\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "Post Product list"
+					},
+					"response": []
+				},
+				{
+					"name": "Get productlist by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjM1MTQ1OCwiZXhwIjoxNzIyMzU1MDU4fQ.x-RTxtQPRYUrAS5-csHKa3ZgD1nv2xSdgcjzDRxx3Zs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products/66a8ffac9ac4d4b13f2fdb5f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"66a8ffac9ac4d4b13f2fdb5f"
+							]
+						},
+						"description": "Get productlist by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Productlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjM1MTQ1OCwiZXhwIjoxNzIyMzU1MDU4fQ.x-RTxtQPRYUrAS5-csHKa3ZgD1nv2xSdgcjzDRxx3Zs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Example Product check put\",\r\n    \"altNames\": [\r\n        {\r\n            \"altName1\": \"Alternative Name 1\",\r\n            \"altName2\": \"Alternative Name 2\"\r\n        }\r\n    ],\r\n    \"labeledPrice\": 100.00,\r\n    \"lastPrice\": 80.00,\r\n    \"description\": \"This is an example product description.\",\r\n    \"image\": [\r\n        {\r\n            \"image1\": \"https://example.com/image1.jpg\"\r\n        }\r\n    ],\r\n    \"offerEnding\": \"2023-12-31T23:59:59.999Z\",\r\n    \"variedBy\": [\r\n        {\r\n            \"name\": \"Color\",\r\n            \"values\": [\r\n                {\r\n                    \"name\": \"Red\",\r\n                    \"icon\": \"https://example.com/icon-red.jpg\"\r\n                },\r\n                {\r\n                    \"name\": \"Blue\",\r\n                    \"icon\": \"https://example.com/icon-blue.jpg\"\r\n                }\r\n            ],\r\n            \"iconType\": \"color\"\r\n        },\r\n        {\r\n            \"name\": \"Size test put\",\r\n            \"values\": [\r\n                {\r\n                    \"name\": \"Small\",\r\n                    \"icon\": \"https://example.com/icon-small.jpg\"\r\n                },\r\n                {\r\n                    \"name\": \"Medium\",\r\n                    \"icon\": \"https://example.com/icon-medium.jpg\"\r\n                },\r\n                {\r\n                    \"name\": \"Large\",\r\n                    \"icon\": \"https://example.com/icon-large.jpg\"\r\n                }\r\n            ],\r\n            \"iconType\": \"size\"\r\n        }\r\n    ],\r\n    \"variants\": [\r\n        {\r\n            \"filters\": [\r\n                {\r\n                    \"color\": \"Red\",\r\n                    \"size\": \"Small\",\r\n                    \"storage\": \"64GB\"\r\n                }\r\n            ],\r\n            \"images\": [\r\n                {\r\n                    \"image1\": \"https://example.com/variant-red-small-64gb.jpg\"\r\n                }\r\n            ],\r\n            \"labeledPrice\": 110.00,\r\n            \"lastPrice\": 90.00,\r\n            \"stock\": 10\r\n        },\r\n        {\r\n            \"filters\": [\r\n                {\r\n                    \"color\": \"Blue\",\r\n                    \"size\": \"Medium\",\r\n                    \"storage\": \"128GB\"\r\n                }\r\n            ],\r\n            \"images\": [\r\n                {\r\n                    \"image1\": \"https://example.com/variant-blue-medium-128gb.jpg\"\r\n                }\r\n            ],\r\n            \"labeledPrice\": 120.00,\r\n            \"lastPrice\": 100.00,\r\n            \"stock\": 5\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products/66a8ffac9ac4d4b13f2fdb5f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"66a8ffac9ac4d4b13f2fdb5f"
+							]
+						},
+						"description": "Put Productlist"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete productlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjM1NjIwMiwiZXhwIjoxNzIyMzU5ODAyfQ.o3m2ZPDf-rMeXoZGzznjE5fowNlYpzqYeyJ1JXyX0pw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products/66a3c36cc6b3c9a083af77a0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"66a3c36cc6b3c9a083af77a0"
+							]
+						},
+						"description": "Delete productlist"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product list by Pname",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjM1MTQ1OCwiZXhwIjoxNzIyMzU1MDU4fQ.x-RTxtQPRYUrAS5-csHKa3ZgD1nv2xSdgcjzDRxx3Zs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products/MakeUp Product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"MakeUp Product"
+							]
+						},
+						"description": "Get Product list by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjM1MTQ1OCwiZXhwIjoxNzIyMzU1MDU4fQ.x-RTxtQPRYUrAS5-csHKa3ZgD1nv2xSdgcjzDRxx3Zs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "Get all productlist"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjYxOTUzMSwiZXhwIjoxNzIyNjIzMTMxfQ.3AL00uAAzhJPXZl23Syxy9Zk_uxmH0qkCdqA4LaGzNQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"Mainadmin@example.com\",\r\n  \"password\": \"admin123\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"login"
+							]
+						},
+						"description": "Post admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YTExNDdmNjA3ZDFkNzQyYmJmZWQxMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTcyMjg3Njk3MiwiZXhwIjoxNzIyODgwNTcyfQ.9OppSy8f29EhEOpfNpN5e6vDv7wGA95gVdED8MkL7-4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"name\": \"Admin User\",\r\n  \"permissions\": [\"create\"],\r\n  \"registeredBy\": \"superadmin@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Phone number",
+			"item": [
+				{
+					"name": "Post Phonenumber",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjBmYmM2NTEyZDU1ODZmOTEzNzI0MCIsImlhdCI6MTcyMjg3NTEyMywiZXhwIjoxNzIyODc4NzIzfQ.gI_NJzhW8_XB3Ay2Qvqh0_q2SzMvWXrNoeDKjhl3jbk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"testnew1@example.com\",\r\n  \"phoneNumber\": \"+94771234567\",\r\n  \"countryCode\": \"+94\",\r\n  \"numberWithoutCountryCode\": \"771234567\",\r\n  \"country\": \"Sri Lanka\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/phonenumber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"phonenumber"
+							]
+						},
+						"description": "Phone number get"
+					},
+					"response": []
+				},
+				{
+					"name": "Get phonenumbers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjBmYmM2NTEyZDU1ODZmOTEzNzI0MCIsImlhdCI6MTcyMjg3NTEyMywiZXhwIjoxNzIyODc4NzIzfQ.gI_NJzhW8_XB3Ay2Qvqh0_q2SzMvWXrNoeDKjhl3jbk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/phonenumber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"phonenumber"
+							]
+						},
+						"description": "Get phone number"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Phone number ById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjBmYmM2NTEyZDU1ODZmOTEzNzI0MCIsImlhdCI6MTcyMjg3NTEyMywiZXhwIjoxNzIyODc4NzIzfQ.gI_NJzhW8_XB3Ay2Qvqh0_q2SzMvWXrNoeDKjhl3jbk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/phonenumber/66b1020e512d5586f9137254",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"phonenumber",
+								"66b1020e512d5586f9137254"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"testnew1@example.com\",\r\n  \"password\": \"password123\",\r\n  \"firstName\": \"sajith\",\r\n  \"lastName\": \"Gimhan\",\r\n  \"gender\": \"Male\",\r\n  \"birthYear\": 2001,\r\n  \"profilePicture\": \"http://example.com/profile.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						},
+						"description": "User register"
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"testnew1@example.com\",\r\n  \"password\": \"password123\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						},
+						"description": "Get User"
+					},
+					"response": []
+				},
+				{
+					"name": "User profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjBmYmM2NTEyZDU1ODZmOTEzNzI0MCIsImlhdCI6MTcyMjg3NTEyMywiZXhwIjoxNzIyODc4NzIzfQ.gI_NJzhW8_XB3Ay2Qvqh0_q2SzMvWXrNoeDKjhl3jbk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						},
+						"description": "User Profile"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account settings",
+			"item": [
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjBmYmM2NTEyZDU1ODZmOTEzNzI0MCIsImlhdCI6MTcyMjg3NTEyMywiZXhwIjoxNzIyODc4NzIzfQ.gI_NJzhW8_XB3Ay2Qvqh0_q2SzMvWXrNoeDKjhl3jbk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n  \"oldPassword\": \"password123\",\r\n   \"newPassword\": \"password12345\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"changePassword"
+							]
+						},
+						"description": "Change Password"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Account settings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YjBmYmM2NTEyZDU1ODZmOTEzNzI0MCIsImlhdCI6MTcyMjg3NTEyMywiZXhwIjoxNzIyODc4NzIzfQ.gI_NJzhW8_XB3Ay2Qvqh0_q2SzMvWXrNoeDKjhl3jbk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"gender\": \"female\",\r\n    \"birthYear\": 2001,\r\n    \"profilePicture\": \"https://example.com/profile-picture.jpg\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/changeAccountSettings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"changeAccountSettings"
+							]
+						},
+						"description": "Change Account settings"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

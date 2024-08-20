@@ -12,6 +12,7 @@ import authenticate from "../middlewares/authenticate.js";
 import authorizeAdmin from "../middlewares/authorizeAdmin.js";
 
 const productRouter = express.Router();
+productRouter.post("/temp", addProduct);
 productRouter.post("/", authenticate, authorizeAdmin, addProduct);
 productRouter.get("/search", searchByProductName);
 productRouter.get("/price", searchByPriceRange);

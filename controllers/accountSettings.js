@@ -32,7 +32,7 @@ export const changePassword = async (req, res) => {
 
 // Change account settings
 export const changeAccountSettings = async (req, res) => {
-  const { firstName, lastName, gender, birthYear, profilePicture } = req.body;
+  const { firstName, lastName, password, gender, birthYear, profilePicture } = req.body;
 
   try {
     const user = req.user;
@@ -44,13 +44,18 @@ export const changeAccountSettings = async (req, res) => {
     if (birthYear) user.birthYear = birthYear;
     if (profilePicture) user.profilePicture = profilePicture;
 
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      user.passwordHash = await bcrypt.hash(password, salt);
+    }
+
     await user.save();
 
     res
       .status(200)
       .json({ message: "Account settings updated successfully", user });
   } catch (error) {
-    console.error("Error updating account settings:", error);
-    res.status(500).json({ message: "Server error", error: error.message });
+      console.error("Error updating account settings:", error);
+      res.status(500).json({ message: "Server error", error: error.message });
   }
 };

@@ -8,6 +8,6 @@ import authenticate from "../middlewares/authenticate.js";
 const router = express.Router();
 
 router.post("/changePassword", authenticate, changePassword);
-router.post("/changeAccountSettings", authenticate, changeAccountSettings);
+router.put("/changeAccountSettings", authenticate, changeAccountSettings);
 
 export default router;

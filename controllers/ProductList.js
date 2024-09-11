@@ -21,7 +21,7 @@ export const addProduct = async (req, res) => {
 // 10 Products per page
 export const getAllProduct = async (req, res) => {
   const page = parseInt(req.body.page) || 1;
-  const limit = parseInt(req.body.limit) || 10;
+  const limit = parseInt(req.body.limit) || 12;
   const skip = (page - 1) * limit;
   try {
     const products = await productList.find().skip(skip).limit(limit);
